@@ -1,54 +1,56 @@
 ## Author
 
-Lluis Pitarch Ripolles
+Lluis Pitarch Ripollés
 
-Linkedin: https://linkedin.com/in/lluis-pitarch
+LinkedIn: https://linkedin.com/in/lluis-pitarch
 
 ---
 
-## Technical design
+## Technical Design
 
-The application was created using [Next.js](https://nextjs.org) framework and its project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+The application is built using the [Next.js](https://nextjs.org) framework, and it was bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-- The app uses the `/api` routes from Next js to retrieve the wikipedia open api to get the results with a simple query request, and adapts this to the app Result model, this approach ensures a type safety across the whole app.
+- The app utilizes Next.js' `/api` routes to interact with the Wikipedia open API for fetching results via simple query requests. The results are adapted to the app's `Result` model, ensuring type safety throughout the application.
 
-- I decide to just use a hook to keep the app data, this decision is made to prevent an overkill solution, in the future if the app has the need we can alway implement a store management layer like React Context, Zustand, MobX or Redux.
+- I decided to use a hook to manage the app's data, opting for a lightweight solution. If the app grows and requires more complexity, a state management layer like React Context, Zustand, MobX, or Redux can be added in the future.
 
-- For fetching data I use the `@tanstack/use-query` library because fits perfect with the use case of the app, also it's perfect for avoiding multiple calls, caching and cancel parallel calls. I also combine the solution with the custom made hook `useDebounceQuery.tsx` that allows to prevent queries while the user is still typing on the input.
+- Data fetching is handled by the `@tanstack/use-query` library, which is well-suited to the app's needs. It minimizes unnecessary API calls, supports caching, and allows for canceling parallel requests. Additionally, I implemented a custom hook, `useDebounceQuery.tsx`, to prevent queries from being sent while the user is still typing in the input field.
 
-- In order to virtualizate the results and ensure a optimum performance, I choose the solution from the same team of Tanstack: `@tanstack/react-virtual`
+- To optimize performance and virtualize the results, I used `@tanstack/react-virtual`, which provides efficient rendering for large lists of data.
 
 ## Testing
 
-I just wrote one test that is checking the app core handled by the hook `useSearchWiki.tsx` this is the responsible of keeping the store on the app, fetching data and creating an easy return of the data to the different components.
+- A core test was written for the `useSearchWiki.tsx` hook, which manages the app's state, handles data fetching, and ensures the data is easily accessible to various components.
 
-And another test as an example to test the different conditional rendering cases on the result list component: `ResultList.tsx`.
+- Another test was created for the `ResultList.tsx` component, which covers different conditional rendering scenarios.
 
-## Improvement
+\*We should increase the test coverage and even add an E2E test using Cypress or Playwright
 
-- Refactor the project foldering to an more Scream architecture approach.
-- Implement pagination to reduce the network traffic and performance.
-- If the SEO is critical, refactor the app to take the chance of use the react server components feature from Next.js.
-- Styling refactor and implement a solid style-guide
-- Add more features like delete the elements from the recent searches or move this storage to a real db and link this with a user auth, link to the wikipedia real page.
+## Improvements
+
+- Refactor the project structure to follow a more modular "Screaming Architecture" approach.
+- Implement pagination to reduce network traffic and improve performance.
+- If SEO becomes a priority, consider refactoring the app to leverage Next.js' React Server Components feature.
+- Refactor the styling and establish a solid style guide.
+- Add more features, such as allowing users to delete items from their recent searches or moving storage to a real database with user authentication, and providing direct links to Wikipedia pages.
 
 ## Getting Started
 
-First, run the development server:
+To start the development server:
 
-Install the dependencies:
+1. Install dependencies:
 
 ```bash
 npm install
 ```
 
-Run the dev server:
+2. Run the development server:
 
 ```bash
 npm run dev
 ```
 
-Run the tests:
+Run tests:
 
 ```bash
 npm run test
