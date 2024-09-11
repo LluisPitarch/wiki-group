@@ -1,0 +1,12 @@
+.search-bar {
+  width: 100%;
+}
+
+.search-bar__wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.search-bar__input {
+  width: 100%;
+}

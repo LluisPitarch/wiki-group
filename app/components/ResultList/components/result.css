@@ -1,0 +1,44 @@
+.result {
+  padding: 0.75em 1em;
+  border-bottom: 1px solid var(--foreground);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  height: 110px;
+  overflow: hidden;
+  position: relative;
+}
+
+.result::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: var(--super-light-foreground);
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.result:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: var(--super-light-foreground);
+}
+
+.result__title {
+  font-size: 1.2em;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.result__description {
+  font-size: 1em;
+  font-weight: 300;
+  color: var(--light-foreground);
+}

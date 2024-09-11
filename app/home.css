@@ -1,0 +1,19 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.home__layout {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  gap: 2em;
+  align-items: stretch;
+}
+
+.home__search {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: stretch;
+}

@@ -1,0 +1,25 @@
+.recent-searches {
+  border: 1px solid var(--foreground);
+  padding: 1em 1em 0 1em;
+  border-radius: calc(var(--radius) - 2px);
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.recent-searches__title {
+  margin-bottom: 0.5em;
+}
+
+.recent-searches__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.recent-searches__element {
+  cursor: pointer;
+  text-decoration: underline;
+}
